@@ -1,27 +1,30 @@
 public class Author {
-        private String firstNameOfAuthor;
-        private String lastNameOfAuthor;
-        public Author(String firstNameOfAuthor, String lastNameOfAuthor) {
-            this.firstNameOfAuthor = firstNameOfAuthor;
-            this.lastNameOfAuthor = lastNameOfAuthor;
+        private String firstName;
+        private String lastName;
+        public Author(String firstName, String lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
         }
-        public String getLastNameOfAuthor() { return this.lastNameOfAuthor; }
-        public String getFirstNameOfAuthor() { return this.firstNameOfAuthor; }
+        public String getLastName() { return this.lastName; }
+        public String getFirstName() { return this.firstName; }
+
         @Override
         public boolean equals(Object obj) {
-            if (this.getClass() != obj.getClass()) {
-                return false;
-            }
-            Author second = (Author) obj;
-            return getFirstNameOfAuthor().equals(second);
+            if (this == obj) { return true; }
+            if (obj == null || getClass() != obj.getClass()) { return false; }
+
+            Author author = (Author) obj;
+
+            return getLastName() != null || getFirstName() != null ? getLastName().equals(author.getLastName()) || getFirstName().equals(author.getFirstName()) :
+                    author.getLastName() == null || author.getFirstName() == null;
         }
 
         @Override
         public int hashCode() {
-            return java.util.Objects.hash(lastNameOfAuthor, firstNameOfAuthor);
+            return java.util.Objects.hash(lastName, firstName);
         }
         @Override
         public String toString() {
-            return getLastNameOfAuthor() + " " + getFirstNameOfAuthor();
+            return getLastName() + " " + getFirstName();
     }
 }
