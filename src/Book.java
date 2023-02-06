@@ -1,14 +1,20 @@
 public class Book {
     private String nameOfBook;
     private Author author;
+
     private int yearOfPublication;
-    public Book(String nameOfBook, int yearOfPublication) {
+
+    public Book(String nameOfBook, Author author, int yearOfPublication) {
         this.nameOfBook = nameOfBook;
+        this.author = author;
         this.yearOfPublication = yearOfPublication;
     }
-    public String getName() { return this.nameOfBook; }
+
+    public String getNameOfBook() { return this.nameOfBook; }
+    public Author getAuthor() { return author; }
     public int getYearOfPublication() { return this.yearOfPublication; }
     public void setYearOfPublication(int yearOfPublication) { this.yearOfPublication = yearOfPublication; }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == this) { return true; }
@@ -27,7 +33,7 @@ public class Book {
     }
     @Override
     public String toString() {
-        return "Книга - " + getName() + " была опубликована в " + getYearOfPublication() +
-                " году, написал это произведение ";
+        return "Книга - " + getNameOfBook() + ", автор - " + getAuthor() +
+                ". Это произведение было опубликовано в " + getYearOfPublication() + " году";
     }
 }

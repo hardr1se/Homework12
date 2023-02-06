@@ -8,6 +8,11 @@ public class Author {
         public String getLastName() { return this.lastName; }
         public String getFirstName() { return this.firstName; }
 
+        public void setFirstName(String firstName) { this.firstName = firstName; }
+
+        public void setLastName(String lastName) { this.lastName = lastName; }
+
+
         @Override
         public boolean equals(Object obj) {
             if (this == obj) { return true; }
